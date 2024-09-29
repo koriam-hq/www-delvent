@@ -1,0 +1,19 @@
+{
+  "name": "d-yoma",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "node-sass --output-style compressed src/styles/base.scss -o styles/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

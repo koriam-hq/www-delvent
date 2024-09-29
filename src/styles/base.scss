@@ -1,0 +1,365 @@
+// Import Bootstrap and Google Fonts
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+// Variables
+$primary-color: #961EDA;
+$background-color: #F2F5FA;
+$text-color: #0D172C;
+$light-text-color: #fbfbfb;
+
+// Mixins for responsive design
+@mixin phone {
+  @media (max-width: 767px) { @content; }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1023px) { @content; }
+}
+
+// Common styles
+%card-style {
+  background-color: $background-color;
+  border-radius: 20px;
+  padding: 55px 53px;
+
+  @include phone {
+    padding: 30px 20px;
+  }
+  @include tablet {
+    padding: 40px 25px;
+  }
+}
+
+// Typography
+.title-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  color: $text-color;
+  font-size: 64px;
+  font-weight: bold;
+
+  @include phone {
+    font-size: 36px;
+  }
+  @include tablet {
+    font-size: 48px;
+  }
+}
+
+.subtext {
+  font-family: 'Figtree', sans-serif;
+  font-size: 20px;
+
+  @include phone {
+    font-size: 16px;
+  }
+  @include tablet {
+    font-size: 18px;
+  }
+}
+
+.wait-list {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+
+  @include phone {
+    font-size: 20px;
+  }
+  @include tablet {
+    font-size: 22px;
+  }
+}
+
+// Components
+.hero-text-container {
+  @extend %card-style;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  color: $light-text-color;
+  width: 92px;
+  height: 70px;
+  box-shadow: $background-color 10px;
+  border-radius: 20px;
+  border: 0;
+
+  &:hover {
+    background-color: $light-text-color;
+    color: $primary-color;
+  }
+
+  @include phone {
+    width: 70px;
+    height: 70px;
+  }
+  @include tablet {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+// Concert section
+.concert-section {
+  @include phone {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .concert-text {
+    @include phone {
+      order: 1; // This moves the text above the images
+    }
+  }
+
+  .concert-images-container {
+    @include phone {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      order: 2; // This moves the images below the text
+    }
+  }
+}
+
+// Concert images
+@for $i from 1 through 4 {
+  .concert-images-#{$i} {
+    width: 310px;
+    height: 307px;
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+
+    @include phone {
+      width: calc(50% - 7.75px); // 50% minus half of the gap
+      height: auto;
+      aspect-ratio: 1 / 1;
+      margin-bottom: 15.5px; // Match the main container padding
+    }
+
+    @include tablet {
+      width: 250px;
+      height: 248px;
+    }
+  }
+}
+
+.concert-images-1 { 
+  clip-path: polygon(0 0, 100% 15%, 80% 85%, 10% 100%);
+  @include phone {
+    clip-path: polygon(0 0, 100% 5%, 90% 95%, 5% 100%);
+  }
+  @include tablet {
+    clip-path: polygon(0 0, 100% 10%, 85% 90%, 7% 100%);
+  }
+}
+.concert-images-2 { 
+  clip-path: polygon(10% 0, 80% 10%, 100% 85%, 0 100%);
+  @include phone {
+    clip-path: polygon(5% 0, 90% 5%, 100% 95%, 0 100%);
+  }
+  @include tablet {
+    clip-path: polygon(7% 0, 85% 7%, 100% 90%, 0 100%);
+  }
+}
+.concert-images-3 { 
+  clip-path: polygon(0 15%, 100% 0, 85% 96%, 20% 80%);
+  @include phone {
+    clip-path: polygon(0 5%, 100% 0, 95% 98%, 10% 90%);
+  }
+  @include tablet {
+    clip-path: polygon(0 10%, 100% 0, 90% 97%, 15% 85%);
+  }
+}
+.concert-images-4 { 
+  clip-path: polygon(15% 10%, 85% 0%, 100% 100%, 0 85%);
+  @include phone {
+    clip-path: polygon(5% 5%, 95% 0%, 100% 100%, 0 95%);
+  }
+  @include tablet {
+    clip-path: polygon(10% 7%, 90% 0%, 100% 100%, 0 90%);
+  }
+}
+
+// Specific positioning for mobile view
+@include phone {
+  .concert-images-1, .concert-images-3 {
+    order: 1;
+  }
+  .concert-images-2, .concert-images-4 {
+    order: 2;
+  }
+}
+
+// Form and notification
+.form-notification-container {
+  position: relative;
+}
+
+.form-container {
+  @extend %card-style;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 53px 55px 10px 55px;
+
+  @include phone {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px; 
+    margin: -15.5px; 
+  }
+
+  .form-input-container {
+    display: flex;
+    flex-grow: 1;
+    margin-right: 10px;
+
+    @include phone {
+      flex-direction: column;
+      margin-right: 0;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    input {
+      flex-grow: 1;
+      margin-right: 10px;
+
+      @include phone {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+    }
+  }
+
+  .btn-primary {
+    width: 92px;
+    height: 93px;
+
+    @include phone {
+      width: 100%;
+      height: 93px;
+      padding: 15px 0;
+      margin: 0;
+      font-size: 18px;
+      border-radius: 10px;
+    }
+    @include tablet(){
+      width: 100%;
+      height: 93px;
+      padding: 15px 0;
+      margin: 0;
+      font-size: 24px;
+      border-radius: 10px;
+    }
+  }
+}
+
+.notification-card {
+  @extend %card-style;
+  display: none;
+
+  .card-title {
+    @include phone {
+      font-size: 20px;
+    }
+    @include tablet {
+      font-size: 22px;
+    }
+  }
+
+  .card-text {
+    @include phone {
+      font-size: 16px;
+    }
+  }
+}
+
+.card-body-1 {
+  font-family: 'Figtree', sans-serif;
+  font-size: 20px;
+}
+
+// White paper
+.white-paper {
+  @extend %card-style;
+  font-family: 'Figtree', sans-serif;
+  color: $text-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 214px;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $background-color;
+  }
+
+  @include phone {
+    height: auto;
+    min-height: 150px;
+    width: 100%; // Full width of its container
+    padding: 30px 20px; // Match the padding of other elements on mobile
+  }
+
+  @include tablet {
+    height: 180px;
+    padding: 40px 25px; // Match the padding of other elements on tablet
+  }
+}
+
+// Navbar styles
+.navbar {
+  .linkedin-icon {
+    display: none;
+    color: $text-color;
+    
+    &:hover {
+      color: $primary-color;
+    }
+    
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+    
+    @include phone {
+      display: block;
+    }
+  }
+  
+  .navbar-toggler {
+    @include phone {
+      display: none;
+    }
+  }
+  
+  #navbarNav {
+    @include phone {
+      display: none !important;
+    }
+  }
+}
+
+
+@include phone {
+  .col-xl-6, .col-lg-6, .col-md-6 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@include tablet {
+  .col-xl-6, .col-lg-6 {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+.main-container {
+  @include phone {
+    padding: 15.5px;
+  }
+}
