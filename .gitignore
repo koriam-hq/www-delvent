@@ -89,3 +89,9 @@ typings/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# ignore build
+dist/
+
+# ignore parcel cache
+.parcel-cache/
