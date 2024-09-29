@@ -1,9 +1,10 @@
 {
   "name": "d-yoma",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "build-css": "node-sass --output-style compressed src/styles/base.scss -o styles/"
+    "build-css": "node-sass --output-style compressed src/styles/base.scss -o styles/",
+    "start": "parcel /Users/mac/Desktop/www-delvent/html/index.html",
+    "build": "parcel build ./html/index.html"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "express": "^4.21.0"
   },
   "devDependencies": {
-    "node-sass": "^9.0.0"
+    "node-sass": "^9.0.0",
+    "parcel": "^2.12.0"
   }
 }
