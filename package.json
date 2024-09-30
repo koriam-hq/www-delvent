@@ -6,6 +6,7 @@
   "scripts": {
     "build-css": "node-sass --output-style compressed src/styles/base.scss -o src/styles/",
     "start:dev": "nodemon",
+    "start:functions": "wrangler dev --config ./functions/wrangler.toml",
     "start": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html"
   },
@@ -13,9 +14,12 @@
     "bootstrap": "^5.3.3"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240925.0",
     "@parcel/transformer-sass": "^2.12.0",
     "node-sass": "^9.0.0",
     "nodemon": "^3.1.7",
-    "parcel": "^2.12.0"
+    "parcel": "^2.12.0",
+    "typescript": "^5.6.2",
+    "wrangler": "^3.78.12"
   }
 }
