@@ -6,11 +6,12 @@
   "scripts": {
     "build-css": "node-sass --output-style compressed src/styles/base.scss -o src/styles/",
     "start:dev": "nodemon",
-    "start:functions": "wrangler dev --config ./functions/wrangler.toml",
+    "start:functions": "wrangler pages dev",
     "start": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.15",
     "bootstrap": "^5.3.3"
   },
   "devDependencies": {

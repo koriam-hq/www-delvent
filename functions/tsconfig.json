@@ -2,7 +2,7 @@
   "include": ["**/*"],
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
+    "module": "nodenext",
     "lib": ["esnext"],
     "types": ["@cloudflare/workers-types"]
   }

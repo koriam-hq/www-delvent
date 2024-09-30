@@ -97,3 +97,5 @@ dist/
 .parcel-cache/
 
 **/.wrangler
+
+.dev.vars
