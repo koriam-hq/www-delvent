@@ -5,7 +5,25 @@ interface Env {
 }
 
 /**
+ * OPTIONS /api/wait-list
+ * @returns Response
+ */
+export const onRequestOptions: PagesFunction = async () => {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+      "Access-Control-Max-Age": "86400",
+    },
+  });
+};
+
+/**
  * POST /api/wait-list
+ *
+ * @returns Response
  */
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   try {
