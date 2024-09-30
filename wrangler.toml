@@ -6,5 +6,8 @@ compatibility_date = "2024-09-29"
 [env.production]
 compatibility_date = "2024-09-02"
 
+[env.preview]
+compatibility_date = "2024-09-02"
+
 [vars]
 NOTION_API_KEY = ""
