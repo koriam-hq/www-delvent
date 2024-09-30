@@ -95,3 +95,7 @@ dist/
 
 # ignore parcel cache
 .parcel-cache/
+
+**/.wrangler
+
+.dev.vars
